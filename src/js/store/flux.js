@@ -31,19 +31,38 @@ const getState = ({ getStore, setStore }) => {
 						});
 				});
 			},
-			changeColor: (index, color) => {
-				//get the store
+			deleteContact: id => {
 				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
+				fetch("https://3000-d246e08a-71ed-4ca8-bf76-1770ce368d3d.ws-us0.gitpod.io/contact/" + id, {
+					method: "delete"
+				}).then(getRefresh => {
+					fetch("https://3000-d246e08a-71ed-4ca8-bf76-1770ce368d3d.ws-us0.gitpod.io/contact")
+						.then(response => response.json())
+						.then(data => {
+							store.contactList = data;
+							setStore({ store });
+						});
 				});
-
-				//reset the global store
-				setStore({ demo: demo });
+			},
+			editContact: (name, phone, email, address) => {
+				const store = getStore();
+				fetch("https://3000-d246e08a-71ed-4ca8-bf76-1770ce368d3d.ws-us0.gitpod.io/contact/" + id, {
+					method: "put",
+					headers: { "Content-type": "application/json" },
+					body: JSON.stringify({
+						name: name,
+						phone: phone,
+						address: address,
+						email: email
+					})
+				}).then(getRefresh => {
+					fetch("https://3000-d246e08a-71ed-4ca8-bf76-1770ce368d3d.ws-us0.gitpod.io/contact")
+						.then(response => response.json())
+						.then(data => {
+							store.contactList = data;
+							setStore({ store });
+						});
+				});
 			}
 		}
 	};

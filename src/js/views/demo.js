@@ -89,16 +89,17 @@ export class Contact extends React.Component {
 											</div>
 											<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
 												<div className=" float-right">
-													<Link to={"/edit/" + item.email}>
+													<Link to={"/"}>
 														<button className="btn">
 															<i className="fas fa-pencil-alt mr-3" />
 														</button>
 													</Link>
-													{/*<Link to="/">
-														<button className="btn" onClick={() => this.props.onDelete()}>
-															<i className="fas fa-trash-alt" />
-														</button>
-													</Link>*/}
+
+													<button
+														className="btn"
+														onClick={() => actions.deleteContact(item.id)}>
+														<i className="fas fa-trash-alt" />
+													</button>
 												</div>
 												<p>{item.name}</p>
 
