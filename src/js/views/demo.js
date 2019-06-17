@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 
 import "../../styles/demo.scss";
 
-export class Demo extends React.Component {
+export class Contact extends React.Component {
 	render() {
 		return (
 			<div className="container">
@@ -21,16 +21,22 @@ export class Demo extends React.Component {
 							<form>
 								<div className="form-row">
 									<div className="col-md-6">
-										<input type="text" className="form-control" placeholder="Name" />
+										<input name="name" type="text" className="form-control" placeholder="Name" />
 									</div>
 									<div className="col-md-6">
-										<input type="text" className="form-control" placeholder="Phone Number" />
+										<input
+											name="phone"
+											type="text"
+											className="form-control"
+											placeholder="Phone Number"
+										/>
 									</div>
 								</div>
 								<div className="form-row">
 									<div className="form-group col-md-6">
 										<label htmlFor="inputEmail4" />
 										<input
+											name="email"
 											type="email"
 											className="form-control"
 											id="inputEmail4"
@@ -40,6 +46,7 @@ export class Demo extends React.Component {
 									<div className="form-group col-md-6">
 										<label htmlFor="inputAddress" />
 										<input
+											name="address"
 											type="text"
 											className="form-control"
 											id="inputAddress"
@@ -52,15 +59,12 @@ export class Demo extends React.Component {
 									className="btn btn-primary mb-3"
 									type="button"
 									onClick={() => {
-										let name = document.querySelector("[name=name]").value;
-										let email = document.querySelector("[name=email]").value.trim();
-										let phone = document.querySelector("[name=phone]").value.trim();
-										let address = document.querySelector("[name=address]").value.trim();
-										if (phone === "") phone = null;
-										if (address === "") address = null;
-										if (name === "") name = null;
-										if (email === "") email = null;
-										actions.addContact(name, email, phone, address);
+										actions.addContact(
+											document.querySelector("[name=name]").value,
+											document.querySelector("[name=email]").value,
+											document.querySelector("[name=phone]").value,
+											document.querySelector("[name=address]").value
+										);
 									}}>
 									Add Contact
 								</button>
@@ -85,11 +89,11 @@ export class Demo extends React.Component {
 											</div>
 											<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
 												<div className=" float-right">
-													{/*<Link to={"/edit/" + item.email}>
+													<Link to={"/edit/" + item.email}>
 														<button className="btn">
 															<i className="fas fa-pencil-alt mr-3" />
 														</button>
-													</Link>*/}
+													</Link>
 													{/*<Link to="/">
 														<button className="btn" onClick={() => this.props.onDelete()}>
 															<i className="fas fa-trash-alt" />
@@ -97,7 +101,7 @@ export class Demo extends React.Component {
 													</Link>*/}
 												</div>
 												<p>{item.name}</p>
-												<br />
+
 												<i className="fas fa-map-marker-alt text-muted mr-3" />
 												<span className="text-muted">{item.address}</span>
 												<br />
@@ -132,3 +136,12 @@ export class Demo extends React.Component {
 		);
 	}
 }
+
+// let name = document.querySelector("[name=name]").value;
+// 										let email = document.querySelector("[name=email]").values;
+// 										let phone = document.querySelector("[name=phone]").value.trim();
+// 										let address = document.querySelector("[name=address]").value;
+// 										if (phone === "") phone = null;
+// 										if (address === "") address = null;
+// 										if (email === "") email = null;
+// 										actions.addContact(name, email, phone, address);

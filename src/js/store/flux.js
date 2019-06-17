@@ -13,7 +13,7 @@ const getState = ({ getStore, setStore }) => {
 		actions: {
 			addContact: (name, phone, email, address) => {
 				const store = getStore();
-				fetch("https://3000-d6565c2a-79cb-427b-9e32-c64064c66b52.ws-us0.gitpod.io/contact", {
+				fetch("https://3000-d246e08a-71ed-4ca8-bf76-1770ce368d3d.ws-us0.gitpod.io/contact", {
 					method: "post",
 					headers: { "Content-type": "application/json" },
 					body: JSON.stringify({
@@ -23,10 +23,10 @@ const getState = ({ getStore, setStore }) => {
 						email: email
 					})
 				}).then(getRefresh => {
-					fetch("https://3000-d6565c2a-79cb-427b-9e32-c64064c66b52.ws-us0.gitpod.io/contact")
+					fetch("https://3000-d246e08a-71ed-4ca8-bf76-1770ce368d3d.ws-us0.gitpod.io/contact")
 						.then(response => response.json())
 						.then(data => {
-							store.todos = data;
+							store.contactList = data;
 							setStore({ store });
 						});
 				});
