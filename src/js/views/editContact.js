@@ -4,7 +4,7 @@ import "../../styles/home.scss";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
-export class Home extends React.Component {
+export class Edit extends React.Component {
 	render() {
 		return (
 			<div className="container">
@@ -66,6 +66,9 @@ export class Home extends React.Component {
 											);
 										}}>
 										Add Contact
+									</button>
+									<button className="btn btn-primary mb-3 float-right" type="button">
+										Go Back
 									</button>
 								</Link>
 							</form>
