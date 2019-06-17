@@ -3,15 +3,13 @@ import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export class Edit extends React.Component {
 	render() {
 		return (
 			<div className="container">
-				<div>
-					<h2>Contact List</h2>
-				</div>
-				<div>
+				<div className="mb-4">
 					<h5>Edit Contact</h5>
 				</div>
 				<Context.Consumer>
@@ -20,7 +18,13 @@ export class Edit extends React.Component {
 							<form>
 								<div className="form-row">
 									<div className="col-md-6">
-										<input name="name" type="text" className="form-control" placeholder="Name" />
+										<input
+											name="name"
+											type="text"
+											className="form-control"
+											placeholder="Name"
+											defaultValue={store.contactList[this.props.match.params.theid].name}
+										/>
 									</div>
 									<div className="col-md-6">
 										<input
@@ -28,6 +32,7 @@ export class Edit extends React.Component {
 											type="text"
 											className="form-control"
 											placeholder="Phone Number"
+											defaultValue={store.contactList[this.props.match.params.theid].phone}
 										/>
 									</div>
 								</div>
@@ -40,6 +45,7 @@ export class Edit extends React.Component {
 											className="form-control"
 											id="inputEmail4"
 											placeholder="Email"
+											defaultValue={store.contactList[this.props.match.params.theid].email}
 										/>
 									</div>
 									<div className="form-group col-md-6">
@@ -50,22 +56,26 @@ export class Edit extends React.Component {
 											className="form-control"
 											id="inputAddress"
 											placeholder="Address"
+											defaultValue={store.contactList[this.props.match.params.theid].address}
 										/>
 									</div>
 								</div>
+
 								<Link to="/contact/">
 									<button
-										className="btn btn-primary mb-3"
+										className="btn btn-secondary mb-3"
 										type="button"
 										onClick={() => {
-											actions.addContact(
+											actions.editContact(
 												document.querySelector("[name=name]").value,
 												document.querySelector("[name=email]").value,
 												document.querySelector("[name=phone]").value,
-												document.querySelector("[name=address]").value
+												document.querySelector("[name=address]").value,
+
+												store.contactList[this.props.match.params.theid].id
 											);
 										}}>
-										Add Contact
+										Update
 									</button>
 									<button className="btn btn-primary mb-3 float-right" type="button">
 										Go Back
@@ -79,3 +89,7 @@ export class Edit extends React.Component {
 		);
 	}
 }
+
+Edit.propTypes = {
+	match: PropTypes.object
+};

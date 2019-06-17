@@ -10,9 +10,6 @@ export class Contact extends React.Component {
 		return (
 			<div className="container">
 				<div>
-					<h2>Contact List</h2>
-				</div>
-				<div>
 					<h5>Add Contact</h5>
 				</div>
 				<Context.Consumer>
@@ -89,7 +86,7 @@ export class Contact extends React.Component {
 											</div>
 											<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
 												<div className=" float-right">
-													<Link to={"/edit/"}>
+													<Link to={"/edit/" + index}>
 														<button className="btn">
 															<i className="fas fa-pencil-alt mr-3" />
 														</button>
@@ -129,10 +126,6 @@ export class Contact extends React.Component {
 						}}
 					</Context.Consumer>
 				</ul>
-				<br />
-				<Link to="/">
-					<button className="btn btn-primary">Back home</button>
-				</Link>
 			</div>
 		);
 	}

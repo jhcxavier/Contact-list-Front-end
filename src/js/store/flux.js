@@ -13,7 +13,7 @@ const getState = ({ getStore, setStore }) => {
 		actions: {
 			addContact: (name, phone, email, address) => {
 				const store = getStore();
-				fetch("https://3000-d246e08a-71ed-4ca8-bf76-1770ce368d3d.ws-us0.gitpod.io/contact", {
+				fetch("https://3000-b22aef74-c7e2-4c91-a393-81c3c5558343.ws-us0.gitpod.io/contact", {
 					method: "post",
 					headers: { "Content-type": "application/json" },
 					body: JSON.stringify({
@@ -23,7 +23,7 @@ const getState = ({ getStore, setStore }) => {
 						email: email
 					})
 				}).then(getRefresh => {
-					fetch("https://3000-d246e08a-71ed-4ca8-bf76-1770ce368d3d.ws-us0.gitpod.io/contact")
+					fetch("https://3000-b22aef74-c7e2-4c91-a393-81c3c5558343.ws-us0.gitpod.io/contact")
 						.then(response => response.json())
 						.then(data => {
 							store.contactList = data;
@@ -33,10 +33,10 @@ const getState = ({ getStore, setStore }) => {
 			},
 			deleteContact: id => {
 				const store = getStore();
-				fetch("https://3000-d246e08a-71ed-4ca8-bf76-1770ce368d3d.ws-us0.gitpod.io/contact/" + id, {
+				fetch("https://3000-b22aef74-c7e2-4c91-a393-81c3c5558343.ws-us0.gitpod.io/contact/" + id, {
 					method: "delete"
 				}).then(getRefresh => {
-					fetch("https://3000-d246e08a-71ed-4ca8-bf76-1770ce368d3d.ws-us0.gitpod.io/contact")
+					fetch("https://3000-b22aef74-c7e2-4c91-a393-81c3c5558343.ws-us0.gitpod.io/contact")
 						.then(response => response.json())
 						.then(data => {
 							store.contactList = data;
@@ -44,9 +44,9 @@ const getState = ({ getStore, setStore }) => {
 						});
 				});
 			},
-			editContact: (name, phone, email, address) => {
+			editContact: (name, phone, email, address, id) => {
 				const store = getStore();
-				fetch("https://3000-d246e08a-71ed-4ca8-bf76-1770ce368d3d.ws-us0.gitpod.io/contact/" + id, {
+				fetch("https://3000-b22aef74-c7e2-4c91-a393-81c3c5558343.ws-us0.gitpod.io/contact/" + id, {
 					method: "put",
 					headers: { "Content-type": "application/json" },
 					body: JSON.stringify({
@@ -56,7 +56,7 @@ const getState = ({ getStore, setStore }) => {
 						email: email
 					})
 				}).then(getRefresh => {
-					fetch("https://3000-d246e08a-71ed-4ca8-bf76-1770ce368d3d.ws-us0.gitpod.io/contact")
+					fetch("https://3000-b22aef74-c7e2-4c91-a393-81c3c5558343.ws-us0.gitpod.io/contact")
 						.then(response => response.json())
 						.then(data => {
 							store.contactList = data;
