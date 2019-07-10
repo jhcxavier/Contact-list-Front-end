@@ -8,7 +8,20 @@ const getState = ({ getStore, setStore }) => {
 					initial: "white"
 				}
 			],
-			contactList: []
+			contactList: [
+				{
+					name: "João Henrique",
+					email: "jhcxavier@gmail.com",
+					phone: "510 557 2406",
+					address: "Miami FL"
+				},
+				{
+					name: "John Smith",
+					email: "johnsmith@gmail.com",
+					phone: "555-555-5555",
+					address: "Miami FL"
+				}
+			]
 		},
 		actions: {
 			addContact: (name, phone, email, address) => {
