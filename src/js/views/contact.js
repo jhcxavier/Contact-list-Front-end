@@ -56,7 +56,7 @@ export class Contact extends React.Component {
 									className="btn btn-primary mb-3"
 									type="button"
 									onClick={() => {
-										actions.addContact(
+										store.addContact(
 											document.querySelector("[name=name]").value,
 											document.querySelector("[name=email]").value,
 											document.querySelector("[name=phone]").value,
@@ -94,7 +94,7 @@ export class Contact extends React.Component {
 
 													<button
 														className="btn"
-														onClick={() => actions.deleteContact(item.id)}>
+														onClick={() => store.deleteContact(item.id)}>
 														<i className="fas fa-trash-alt" />
 													</button>
 												</div>
