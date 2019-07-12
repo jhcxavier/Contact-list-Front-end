@@ -2,11 +2,6 @@ const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
 			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				}
 			],
 			contactList: [
 				{
