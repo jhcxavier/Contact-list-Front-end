@@ -131,11 +131,3 @@ export class Contact extends React.Component {
 	}
 }
 
-// let name = document.querySelector("[name=name]").value;
-// 										let email = document.querySelector("[name=email]").values;
-// 										let phone = document.querySelector("[name=phone]").value.trim();
-// 										let address = document.querySelector("[name=address]").value;
-// 										if (phone === "") phone = null;
-// 										if (address === "") address = null;
-// 										if (email === "") email = null;
-// 										actions.addContact(name, email, phone, address);

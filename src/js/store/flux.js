@@ -8,7 +8,7 @@ const getState = ({ getStore, setStore }) => {
 					name: "João Henrique",
 					email: "jhcxavier@gmail.com",
 					phone: "510 557 2406",
-					address: "Miami FL"
+					address: "Miami"
 				},
 				{
 					name: "John Smith",
